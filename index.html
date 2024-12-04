@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecology Scavenger Hunt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="landing-page">
+        <h1 id="title">Ecology Scavenger Hunt</h1>
+        <form id="startForm">
+            <label for="groupName">Group Name:</label>
+            <input type="text" id="groupName" name="groupName" required><br>
+
+            <label for="studentNames">Student Names:</label><br>
+            <input type="text" id="studentName1" name="studentName1" placeholder="Student 1"><br>
+            <input type="text" id="studentName2" name="studentName2" placeholder="Student 2"><br>
+            <input type="text" id="studentName3" name="studentName3" placeholder="Student 3"><br>
+            <input type="text" id="studentName4" name="studentName4" placeholder="Student 4"><br>
+            <input type="text" id="studentName5" name="studentName5" placeholder="Student 5"><br>
+            <input type="text" id="studentName6" name="studentName6" placeholder="Student 6"><br>
+
+            <button type="submit">Start</button>
+        </form>
+    </div>
+
+    <script>
+        // Clear any previous data when loading the landing page
+        localStorage.clear();
+
+        document.getElementById('startForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Capture the input values
+            const groupName = document.getElementById('groupName').value;
+            let studentNames = [];
+
+            // Loop through the student name inputs, push non-empty values
+            for (let i = 1; i <= 6; i++) {
+                let studentName = document.getElementById(`studentName${i}`).value.trim();
+                if (studentName) {
+                    studentNames.push(studentName); // Push only non-empty names
+                }
+            }
+
+            // Save the group name and student names to localStorage
+            localStorage.setItem('groupName', groupName);
+            localStorage.setItem('studentNames', JSON.stringify(studentNames));
+
+            // Redirect to quiz page
+            window.location.href = 'quiz.html';
+        });
+    </script>
+</body>
+</html>

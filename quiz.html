@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt - Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Scavenger Hunt Quiz</h1>
+        <p id="student-info"></p>
+        <div id="score">Score: 0</div>
+
+        <form id="questionForm">
+            <label for="questionCode">Question Code (e.g., 40):</label>
+            <input type="number" id="questionCode" name="questionCode" required><br>
+            
+            <label for="answerInput">Your Answer:</label>
+            <div class="answer-options">
+                <input type="radio" id="answerA" name="answerInput" value="A">
+                <label for="answerA">A</label>
+                <input type="radio" id="answerB" name="answerInput" value="B">
+                <label for="answerB">B</label>
+                <input type="radio" id="answerC" name="answerInput" value="C">
+                <label for="answerC">C</label>
+                <input type="radio" id="answerD" name="answerInput" value="D">
+                <label for="answerD">D</label>
+            </div>
+
+            <button type="submit">Submit Answer</button>
+        </form>
+
+        <button id="finishButton" style="display:none;">Finish</button>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
